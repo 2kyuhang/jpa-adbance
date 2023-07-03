@@ -151,9 +151,13 @@ public class User {
 
     //cascade = CascadeType.PERSIST
     //이렇게 하면 user을 저장할때 foodList도 같이 저장이 된다
+    //+CascadeType.REMOVE의 기능도 가지고 있어 user을 삭제하면 연관되어 있는 user에 포함되었던 음식 디비도 삭제된다
+
+    //orphanRemoval = true
+    //user에서 foodlist의 연관관계를 제거(user.gettFoodList().remove(chicken);)를 통해 Food디비에서 제거 가능
 
     //Food클래스에서 지정한 변수명
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST/*, CascadeType.REMOVE*/}, orphanRemoval = true)
     private List<Food> foodList = new ArrayList<>();
 
     public void addFoodList(Food food) {
