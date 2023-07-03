@@ -148,7 +148,16 @@ public class User {
     //LAZY = 지연로딩 => 지연로딩은 정보를 필요할때 가져온다
     //1. 이때 영속성이 열려있어야 가져 올 수 있기 때문에
     //2. 지연로딩에서 값을 뒤늦게 가져오려면 가져오는 함수내에 @Transactional 이 달려 있어야 함!!
-    @OneToMany(mappedBy = "user")//Food클래스에서 지정한 변수명
+
+    //cascade = CascadeType.PERSIST
+    //이렇게 하면 user을 저장할때 foodList도 같이 저장이 된다
+
+    //Food클래스에서 지정한 변수명
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Food> foodList = new ArrayList<>();
 
+    public void addFoodList(Food food) {
+        foodList.add(food);
+        food.setUser(this);
+    }
 }
