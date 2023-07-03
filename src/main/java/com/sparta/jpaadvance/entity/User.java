@@ -141,6 +141,14 @@ public class User {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "user")
-    private List<Order> orderList = new ArrayList<>();
+
+    //OneToMany는 기본이 Lazy
+    //필요할때 정보를 가져온다
+    //뒤에가 Many이기때문에 다수의 정보를 가져오기 무리가 있을 수 있어 필요할때 가져온다
+    //LAZY = 지연로딩 => 지연로딩은 정보를 필요할때 가져온다
+    //1. 이때 영속성이 열려있어야 가져 올 수 있기 때문에
+    //2. 지연로딩에서 값을 뒤늦게 가져오려면 가져오는 함수내에 @Transactional 이 달려 있어야 함!!
+    @OneToMany(mappedBy = "user")//Food클래스에서 지정한 변수명
+    private List<Food> foodList = new ArrayList<>();
+
 }

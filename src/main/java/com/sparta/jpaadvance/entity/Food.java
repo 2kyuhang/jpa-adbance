@@ -153,6 +153,12 @@ public class Food {
     private String name;
     private double price;
 
-    @OneToMany(mappedBy = "food")
-    private List<Order> orderList = new ArrayList<>();
+    //ManyToOne는 기본이 EAGER
+    //user 정보를 바로 가져온다
+    //이유 뒤에가 One이기 때문에 값을 1개만 가져와서!! => 크게 무리가 없기때문
+    @ManyToOne
+    @JoinColumn(name = "user_id")//Food에 user_id라는 컬럼명으로 User과 조인할것이다
+    private User user;
+
+
 }
