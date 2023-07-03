@@ -47,7 +47,7 @@ public class User {
     }
 }*/
 
-package com.sparta.jpaadvance.entity;
+/*package com.sparta.jpaadvance.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -74,6 +74,21 @@ public class User {
         food.setUser(this); // 외래 키(연관 관계) 설정
     }
 
+}*/
 
+package com.sparta.jpaadvance.entity;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@Table(name = "users")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
 }

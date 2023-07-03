@@ -23,7 +23,7 @@ public class ManyToOneTest {
     FoodRepository foodRepository;
 
 
-    @Test
+    /*@Test
     @Rollback(value = false)
     @DisplayName("N대1 단방향 테스트")
     void test1() {
@@ -142,7 +142,7 @@ public class ManyToOneTest {
             System.out.println("food.getName() = " + food.getName());
             System.out.println("food.getPrice() = " + food.getPrice());
         }
-    }
+    }*/
 
 
 }
