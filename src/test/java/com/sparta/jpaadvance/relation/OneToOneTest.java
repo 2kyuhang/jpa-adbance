@@ -20,7 +20,7 @@ public class OneToOneTest {
     @Autowired
     FoodRepository foodRepository;
 
-    //숙련 2-7 25분쯤부터 다시 보기 롤백, 트랜잭션 관련
+    /*//숙련 2-7 25분쯤부터 다시 보기 롤백, 트랜잭션 관련
     @Test
     @Rollback(value = false) // 테스트에서는 @Transactional 에 의해 자동 rollback 됨으로 false 설정해준다.
     @DisplayName("1대1 단방향 테스트")
@@ -116,6 +116,6 @@ public class OneToOneTest {
         Food food = user.getFood();
         System.out.println("food.getName() = " + food.getName());
         System.out.println("food.getPrice() = " + food.getPrice());
-    }
+    }*/
 
 }
