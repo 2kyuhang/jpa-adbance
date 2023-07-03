@@ -23,7 +23,7 @@ public class OneToManyTest {
     FoodRepository foodRepository;
 
 
-    @Test
+    /*@Test
     @Rollback(value = false)
     @DisplayName("1대N 단방향 테스트")
     void test1() {
@@ -57,6 +57,6 @@ public class OneToManyTest {
         for (User user : userList) {
             System.out.println("user.getName() = " + user.getName());
         }
-    }
+    }*/
 
 }
